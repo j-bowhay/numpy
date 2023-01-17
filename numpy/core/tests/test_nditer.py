@@ -2740,13 +2740,6 @@ def test_iter_writemasked_badinput():
                     casting='same_kind')
 
 
-def _is_buffered(iterator):
-    try:
-        iterator.itviews
-    except ValueError:
-        return True
-    return False
-
 @pytest.mark.parametrize("a",
         [np.zeros((3,), dtype='f8'),
          np.zeros((9876, 3*5), dtype='f8')[::2, :],
