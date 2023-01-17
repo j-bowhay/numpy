@@ -134,19 +134,6 @@ def scalar_instances(times=True, extended_precision=True, user_dtype=True):
     yield param(np.void(b"4321"), id="unstructured_void")
 
 
-def is_parametric_dtype(dtype):
-    """Returns True if the dtype is a parametric legacy dtype (itemsize
-    is 0, or a datetime without units)
-    """
-    if dtype.itemsize == 0:
-        return True
-    if issubclass(dtype.type, (np.datetime64, np.timedelta64)):
-        if dtype.name.endswith("64"):
-            # Generic time units
-            return True
-    return False
-
-
 class TestStringDiscovery:
     @pytest.mark.parametrize("obj",
             [object(), 1.2, 10**43, None, "string"],
