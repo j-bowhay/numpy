@@ -499,7 +499,7 @@ class TestSlidingWindowView:
         assert_(not isinstance(sliding_window_view(arr, 2), MyArray))
 
 
-def as_strided_writeable():
+def test_as_strided_writeable():
     arr = np.ones(10)
     view = as_strided(arr, writeable=False)
     assert_(not view.flags.writeable)
