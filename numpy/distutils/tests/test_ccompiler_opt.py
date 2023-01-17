@@ -74,7 +74,7 @@ class FakeCCompilerOpt(CCompilerOpt):
     def dist_log(*args, stderr=False):
         pass
 
-class _Test_CCompilerOpt:
+class TestCCompilerOpt:
     arch = None # x86_64
     cc   = None # gcc
 
