@@ -162,29 +162,6 @@ class TestExecCommand:
         assert_(s == 0)
         assert_(o == 'posix')
 
-    def check_basic(self, *kws):
-        s, o = exec_command.exec_command(
-                     '"%s" -c "raise \'Ignore me.\'"' % self.pyexe, **kws)
-        assert_(s != 0)
-        assert_(o != '')
-
-        s, o = exec_command.exec_command(
-             '"%s" -c "import sys;sys.stderr.write(\'0\');'
-             'sys.stderr.write(\'1\');sys.stderr.write(\'2\')"' %
-             self.pyexe, **kws)
-        assert_(s == 0)
-        assert_(o == '012')
-
-        s, o = exec_command.exec_command(
-                 '"%s" -c "import sys;sys.exit(15)"' % self.pyexe, **kws)
-        assert_(s == 15)
-        assert_(o == '')
-
-        s, o = exec_command.exec_command(
-                     '"%s" -c "print(\'Heipa\'")' % self.pyexe, **kws)
-        assert_(s == 0)
-        assert_(o == 'Heipa')
-
     def check_execute_in(self, **kws):
         with tempdir() as tmpdir:
             fn = "file"
