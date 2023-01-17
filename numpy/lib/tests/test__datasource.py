@@ -74,16 +74,8 @@ def valid_baseurl():
     return http_path
 
 
-def invalid_baseurl():
-    return http_fakepath
-
-
 def valid_httpfile():
     return http_file
-
-
-def invalid_httpfile():
-    return http_fakefile
 
 
 class TestDataSourceOpen:
